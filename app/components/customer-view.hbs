@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-10"><h3>{{this.customer.attributes.email}}</h3></div>
+    <div class="col-2">{{#unless this.isOnEdit}}<BsButton {{on "click" (fn this.setIsOnEdit @model)}}>Edit attributes</BsButton>{{/unless}}</div>
+  </div>
+  <div class="row">
+    <div class="col-12">Last updated: {{this.customer.last_updated}}</div>
+  </div>
+  <div class="row">
+    <div class="col-12"><h4>Attributes</h4></div>
+  </div>
+  <div class="row">
+    <div class="col-4">id</div>
+    <div class="col-8">{{this.customer.id}}</div>
+  </div>
+  <BsForm @model={{this.customer.attributes}} @onSubmit={{this.save}} as |form|>
+    <div class="row">
+      <div class="col-4">email</div>
+      <div class="col-8">{{#if this.isOnEdit}}<form.element @property="email" />{{else}}<div class="col-8">{{this.customer.attributes.email}}</div>{{/if}}</div>
+    </div>
+    <div class="row">
+      <div class="col-4">created_at</div>
+      <div class="col-8">{{#if this.isOnEdit}}<form.element @property="created_at" />{{else}}<div class="col-8">{{this.customer.attributes.created_at}}</div>{{/if}}</div>
+    </div>
+    {{#if this.isOnEdit}}
+      {{#each-in this.customer.attributes as |attr attr_value|}}
+        {{#if (checkRemovable attr)}}
+          <div class="row">
+            <div class="col-4">{{attr}}</div>
+            <div class="col-7"><form.element @property={{attr}} /></div>
+            <div class="col-1"><BsButton @type="danger" @onClick={{action "removeItem" attr}}>remove</BsButton></div>
+          </div>
+        {{/if}}
+      {{/each-in}}
+      <BsForm @onSubmit={{this.add}} as |form2|>
+        <div class="row">
+          <div class="col-5"><form2.element @label="key" @property="key" /></div>
+          <div class="col-5"><form2.element @label="value" @property="value" /></div>
+          <div class="col-2"><form2.submitButton>add</form2.submitButton></div>
+        </div>
+      </BsForm>
+      <div class="row">
+        <div class="col-12">
+          <BsButton @onClick={{this.discard}}>Discard changes</BsButton>
+          <form.submitButton>Save changes</form.submitButton>
+        </div>
+      </div>
+    {{else}}
+      {{#each-in this.customer.attributes as |attr attr_value|}}
+        {{#if (checkRemovable attr)}}
+          <div class="row">
+            <div class="col-4">{{attr}}</div>
+            <div class="col-8">{{attr_value}}</div>
+          </div>
+        {{/if}}
+      {{/each-in}}
+    {{/if}}
+  </BsForm>
+</div>

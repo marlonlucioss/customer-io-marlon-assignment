@@ -1,0 +1,15 @@
+Hello people,
+
+I am Marlon and it's been a pleajure to be in this process. Customer.io looks to me a really awesome place to work and share experiences.
+
+I am writing this text just to pass some considerations about the assigment that I am sending as part of the hiring process.
+
+First of all, it's not finished. I have made an effort to delivery a working version of the  application that you could pass for all features of the application, but unfortunately the  design and testing was not the main feature that I spend much time doing. 
+
+I have focused on the application main fatures built with ember.js, I am not used to work this technology but I want to do the assignment using it to know how fun is to wotk with and because I know that  it is the main tech if Customer.io hire me, and I would say I had so much fun but I have a lot to learn. 
+
+It is not a issue to me because I am used to live these situations, if you are willing to give me the time to learn, it will be a pleasure to be part of the Customer.io team.
+
+I hope you like my job in this phase. I am excited to talk about it.
+
+Regards, Marlon

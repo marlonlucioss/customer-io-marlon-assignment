@@ -1,0 +1,21 @@
+<h3>
+  Customers
+</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">email</th>
+      <th scope="col">last updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each @model as |customer|}}
+      <tr>
+        <th scope="row">{{customer.id}}</th>
+        <td><LinkTo @route="customers.view" @model={{customer}}>{{customer.attributes.email}}</LinkTo></td>
+        <td>{{customer.last_updated}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
